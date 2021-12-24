@@ -1,11 +1,15 @@
 //////////////////////////////////////////////////////////////////////////// Main Code //////////////////////////////////////////////////////////////////////
-import('/data.js')
+/*import('/data.js')
     .then((data) => {
         mainFunction(data);
-    });
+    });*/
+
+fetch('./data.json')
+    .then(response => response.json())
+    .then(data => mainFunction(data))
 
 function mainFunction(data) {
-    const all = data.data();
+    const all = data;
     const destinations = all.destinations;
     const crew = all.crew;
     const tech = all.technology;
@@ -14,7 +18,6 @@ function mainFunction(data) {
     crewPage(crew);
     techPage(tech);
 }
-
 
 //////////////////////////////////////////////////////////////////////////// Destination Page //////////////////////////////////////////////////////////////////////
 
